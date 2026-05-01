@@ -317,11 +317,15 @@
         { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(225,215,40); margin:20px auto;"></div>`, correct_key: 'j' },
         { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(255,0,0); margin:20px auto;"></div>`, correct_key: 'k' },
         // second pass
-        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(25,200,25); margin:20px auto;"></div>`, correct_key: 'f' },
         { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(0,0,255); margin:20px auto;"></div>`, correct_key: 'd' },
-        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(255,0,0); margin:20px auto;"></div>`, correct_key: 'k' },
+        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(25,200,25); margin:20px auto;"></div>`, correct_key: 'f' },
         { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(225,215,40); margin:20px auto;"></div>`, correct_key: 'j' },
-        
+        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(255,0,0); margin:20px auto;"></div>`, correct_key: 'k' },
+        // third pass
+        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(0,0,255); margin:20px auto;"></div>`, correct_key: 'd' },
+        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(25,200,25); margin:20px auto;"></div>`, correct_key: 'f' },
+        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(225,215,40); margin:20px auto;"></div>`, correct_key: 'j' },
+        { stimulus: `<p>What color is this?</p><div style="width:200px; height:150px; background-color:rgb(255,0,0); margin:20px auto;"></div>`, correct_key: 'k' },
     ];
 
    var key_training_block = {
@@ -381,6 +385,11 @@
       timeline: [{
         type: jsPsychWMStroop,
         is_practice: true,
+        // slower presentation during practice trials
+        wm_sample_time: 1500,
+        color_patch_time: 1000,
+        wm_response_time: 4000,
+        
         wm_word: jsPsych.timelineVariable('wm_word'),
         wm_color: jsPsych.timelineVariable('wm_color'),
         patch_color: jsPsych.timelineVariable('patch_color'),
