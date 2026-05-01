@@ -356,7 +356,7 @@
     timeline_variables: key_training_trials,
     randomize_order: true,
   };  
-    //timeline.push(key_training_block)
+    timeline.push(key_training_block)
     
     timeline.push({
       type: jsPsychHtmlButtonResponse,
@@ -391,7 +391,7 @@
       randomize_order: true,
     };
 
-    //timeline.push(practice_block);
+    timeline.push(practice_block);
 
     // Transition from practice to main task
     timeline.push({
@@ -466,7 +466,7 @@
       timeline_variables: block2_trials,
     };
 
-    //timeline.push(block1);
+    timeline.push(block1);
 
     // Midpoint break
     timeline.push({
@@ -502,7 +502,7 @@
     choices: ["Got it!"],
     });
 
-    //timeline.push(block2);
+    timeline.push(block2);
 
     /* -------------------------------------------------------
        DEMOGRAPHICS
@@ -510,8 +510,8 @@
     timeline.push({
       type: jsPsychSurveyText,
       questions: [
-        { prompt: "What is your age?", name: "age", required: true },
-        { prompt: "What is your gender?", name: "gender", required: true },
+        { prompt: "What is your age? If you do not wish to answer, type 'decline'", name: "age", required: true },
+        { prompt: "What is your gender?  If you do not wish to answer, type 'decline'", name: "gender", required: true },
       ],
       button_label: "Submit",
     });
