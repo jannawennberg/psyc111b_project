@@ -356,7 +356,7 @@
     timeline_variables: key_training_trials,
     randomize_order: true,
   };  
-    timeline.push(key_training_block)
+    //timeline.push(key_training_block)
     
     timeline.push({
       type: jsPsychHtmlButtonResponse,
@@ -391,7 +391,7 @@
       randomize_order: true,
     };
 
-    timeline.push(practice_block);
+    //timeline.push(practice_block);
 
     // Transition from practice to main task
     timeline.push({
@@ -466,7 +466,7 @@
       timeline_variables: block2_trials,
     };
 
-    timeline.push(block1);
+    //timeline.push(block1);
 
     // Midpoint break
     timeline.push({
@@ -502,7 +502,7 @@
     choices: ["Got it!"],
     });
 
-    timeline.push(block2);
+    //timeline.push(block2);
 
     /* -------------------------------------------------------
        DEMOGRAPHICS
@@ -540,6 +540,14 @@
     timeline.push({
       type: jsPsychFullscreen,
       fullscreen_mode: false,
+    });
+
+    timeline.push({
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <p>You may now close this window!</p>
+      `,
+      choices: "NO_KEYS",
     });
 
     jsPsych.run(timeline);
