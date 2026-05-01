@@ -349,7 +349,7 @@
                             <p>The correct key for this color is <kbd>${correct_key.toUpperCase()}</kbd> (${color_name})</p>`;
                 }
             },
-            choices: "NO_KEYS",
+            choices: [],
             trial_duration: 1000,  // show feedback for 1 second then move on
         }
     ],
@@ -547,7 +547,7 @@
       stimulus: `
         <p>You may now close this window!</p>
       `,
-      choices: "NO_KEYS",
+      choices: [],
     });
 
     jsPsych.run(timeline);
