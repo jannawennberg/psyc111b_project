@@ -7,6 +7,7 @@
   <script src="https://unpkg.com/jspsych@7.3.4"></script>
   <script src="jspsych_lib/jspsych-wm-stroop.js"></script>
   <link href="jspsych_lib/jspsych.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
   <script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.2.1"></script>
   <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script>
   <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
@@ -53,20 +54,13 @@
     ------------------------------------------------------- */
     const jsPsych = initJsPsych({
       show_progress_bar: true,
-      on_finish: function() {
-        jsPsych.data.get().localSave('csv', `${participant_id}.csv`);
-      }
     });
 
     /* -------------------------------------------------------
        PARTICIPANT ID
     ------------------------------------------------------- */
-    function generate_pid(prefix = "wm_stroop") {
-      const rand = Math.random().toString(36).substring(2, 8);
-      return `${prefix}_${rand}`;
-    }
-
-    const participant_id = generate_pid();
+    const participant_id = jsPsych.randomization.randomID(10);
+    const filename = `${participant_id}.csv`;
     jsPsych.data.addProperties({ participant_id });
 
     /* -------------------------------------------------------
@@ -520,6 +514,14 @@
         { prompt: "What is your gender?", name: "gender", required: true },
       ],
       button_label: "Submit",
+    });
+
+    timeline.push({
+      type: jsPsychPipe,
+      action: "save",
+      experiment_id: "nOzneBoLKNCo",
+      filename: filename,
+      data_string: () => jsPsych.data.get().csv()
     });
 
     /* -------------------------------------------------------
