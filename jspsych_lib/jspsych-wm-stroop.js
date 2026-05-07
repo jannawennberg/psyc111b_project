@@ -15,16 +15,6 @@ var jsPsychWMStroop = (function (jsPsych) {
 				default: null,
 				description: 'Global trial index'
 			},
-			block_index: {
-				type: jsPsych.ParameterType.INT,
-				default: 0,
-				description: 'Index of current block'
-			},
-			task_trial_within_block: {
-				type: jsPsych.ParameterType.INT,
-				default: null,
-				description: 'Index of trial within current block'
-			},
 			is_practice: {
 				type: jsPsych.ParameterType.BOOL,
 				default: false,
@@ -331,14 +321,14 @@ var jsPsychWMStroop = (function (jsPsych) {
 				const trial_data = {
 					task_type: "wm-stroop",
 					is_practice: trial.is_practice,
-					block_index: trial.block_index,
-  					task_trial_within_block: trial.task_trial_within_block,
   					task_trial_index: trial.task_trial_index,
 
+					iti: trial.wait_before_start,
 					wm_sample_time: trial.wm_sample_time,
 					post_wm_delay: trial.post_wm_delay,
 					color_patch_time: trial.color_patch_time,
 					post_patch_delay: trial.post_patch_delay,
+					wm_max_response: trial.wm_response_time,
 
 					wm_word: trial.wm_word,
 					patch_color: col.name,
