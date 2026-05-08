@@ -215,6 +215,9 @@ var jsPsychWMStroop = (function (jsPsych) {
             		+ Math.round(col.rgb[1]) + ','
             		+ Math.round(col.rgb[2]) + ')';
 
+				// show text indicating response
+				document.getElementById('ResponseDiv').innerHTML = `<p style="font-size: ${trial.text_size/4}px;">Judge the color of the rectangle!</p>`;
+
 				// Show responses and start timer
 				patch_response_start = performance.now();
 				
